@@ -1,0 +1,4 @@
+/* 安裝 PostCSS Language Support 擴充功能就不會報錯 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
