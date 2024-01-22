@@ -27,15 +27,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // rules 可以是陣列
-    // 第一個值是「錯誤層級（error level）
-    // off 或 0 - 關閉規則
-    // warn 或 1- 將該規則顯示為警告，但仍可執行
-    // error 或 2 - 將規則顯示為錯誤，會跳出錯誤後不執行，無法成功編譯
-    // 第二個值則是針對該規則的「設定」
-    // 例如在 semi 規則中的 always 表示總是要有分號；
-    // quotes 規則中的 double 則表示要使用雙引號。
     'vue/no-unused-vars': 'error',
     'prettier/prettier': 'error',
+    // 解決 LF / CRLF 的問題
+    // 最根本解法是：在拉專案前輸入 git config --global core.autocrlf false
   },
 };
