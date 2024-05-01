@@ -14,6 +14,7 @@ module.exports = {
   root: true,
   // 注意順序（下面的會繼承上面的）！！！
   extends: [
+    './.eslintrc-auto-import.json',
     // ESLint 官方提供的推薦規則
     'eslint:recommended',
     // Vue 提供的 ESLint 規則插件
