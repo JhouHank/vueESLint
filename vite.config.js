@@ -2,9 +2,9 @@ import {fileURLToPath, URL} from 'node:url';
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
+// vite-plugin-svg-icons
 import eslintPlugin from 'vite-plugin-eslint';
 import ViteRestart from 'vite-plugin-restart';
-import AutoImport from 'unplugin-auto-import/vite';
 import {visualizer} from 'rollup-plugin-visualizer';
 import Components from 'unplugin-vue-components/vite';
 import vueSetupExtend from 'vite-plugin-vue-setup-extend';
@@ -18,15 +18,15 @@ export default defineConfig({
     ViteRestart({
       restart: ['.env.development'],
     }),
-    AutoImport({
-      imports: ['vue', 'vue-router'],
-      // dirs:['./hooks',], // 可以設定特定資料夾自動導入
-      eslintrc: {
-        enabled: true,
-        filepath: './.eslintrc-auto-import.json',
-        globalsPropValue: true,
-      },
-    }),
+    // AutoImport({
+    //   imports: ['vue', 'vue-router'],
+    //   // dirs:['./hooks',], // 可以設定特定資料夾自動導入
+    //   eslintrc: {
+    //     enabled: true,
+    //     filepath: './.eslintrc-auto-import.json',
+    //     globalsPropValue: true,
+    //   },
+    // }),
     Components({
       dirs: ['src/components'], // 目標檔案夾
       extensions: ['vue', 'jsx'], // 文件類型

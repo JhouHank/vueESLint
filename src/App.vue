@@ -1,6 +1,9 @@
 <script setup>
+  import {ref} from 'vue';
   import {RouterLink, RouterView} from 'vue-router';
   import HelloWorld from './components/HelloWorld.vue';
+
+  const a = ref('123');
 </script>
 
 <template>
@@ -18,10 +21,10 @@
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+      <p>{{ a }}</p>
     </div>
+    <RouterView />
   </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
