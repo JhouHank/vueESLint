@@ -1,7 +1,7 @@
 // ESLint 配置文件
 require('@rushstack/eslint-patch/modern-module-resolution');
 
-module.exports = {
+export default {
   // 讓 ESLint 知道有一些全域變數，
   // 這樣在使用全域變數時就不會報錯
   env: {

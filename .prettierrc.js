@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // 單行長度
   printWidth: 80,
   // 指定縮排使用多少空格
