@@ -22,10 +22,11 @@
     <AccordionTrigger
       v-bind="delegatedProps"
       :class="
-cn(
-  'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
-  props.class
-)]"
+        cn(
+          'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
+          props.class,
+        )
+      "
     >
       <slot />
       <slot name="icon">

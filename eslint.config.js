@@ -11,8 +11,10 @@ export default [
   {
     rules: {
       // 自定義規則
-      'vue/no-unused-vars': 'error',
+      // 'vue/no-unused-vars': 'error',
+      'no-unused-vars': ['error', { varsIgnorePattern: ['^cn$', '^_$'] }],
       'vue/multi-word-component-names': 'off',
+      'vue/require-default-prop': 'off',
       'prettier/prettier': 'error',
       // 解決 LF / CRLF 的問題
       // 最根本解法是：在拉專案前輸入 git config --global core.autocrlf false
@@ -24,6 +26,9 @@ export default [
       parser: vueEslintParser,
       parserOptions: {
         sourceType: 'module',
+      },
+      globals: {
+        cn: false,
       },
     },
   },
