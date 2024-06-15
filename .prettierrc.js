@@ -8,7 +8,7 @@ export default {
   // 句尾是否使用分號
   semi: true,
   // 在物件的前後加空格 ex:{ foo: bar }
-  bracketSpacing: false,
+  bracketSpacing: true,
   // 物件是否要在同一行
   bracketSameLine: false,
   // Vue 檔案的 Script 與 Style 是否縮排

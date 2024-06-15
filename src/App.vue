@@ -1,8 +1,5 @@
 <script setup>
-  // import {ref} from 'vue';
-  import {RouterLink, RouterView} from 'vue-router';
-  // import HelloWorld from './components/HelloWorld.vue';
-  // const a = ref('123');
+  import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -11,7 +8,7 @@
   </header>
   <div class="flex gap-4">
     <aside class="w-[250px] h-[calc(100vh-85px)] bg-red-200">
-      <nav>
+      <nav class="flex flex-col">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>

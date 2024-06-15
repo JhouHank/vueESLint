@@ -1,7 +1,7 @@
 import './assets/main.css';
 
-import {createApp} from 'vue';
-import {createPinia} from 'pinia';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import SvgIcon from '@/components/SvgIcon.vue';
 import 'virtual:svg-icons-register';
 import App from './App.vue';
