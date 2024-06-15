@@ -1,8 +1,8 @@
 import {fileURLToPath, URL} from 'node:url';
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
-import svgLoader from 'vite-svg-loader';
-// vite-plugin-svg-icons
+import {createSvgIconsPlugin} from 'vite-plugin-svg-icons';
+import path from 'path';
 import eslintPlugin from 'vite-plugin-eslint';
 import ViteRestart from 'vite-plugin-restart';
 import {visualizer} from 'rollup-plugin-visualizer';
@@ -10,29 +10,40 @@ import Components from 'unplugin-vue-components/vite';
 import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 
 export default defineConfig({
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: '',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //   },
+  // },
   plugins: [
     vue(),
     visualizer(),
     vueSetupExtend(),
-    svgLoader(),
     ViteRestart({
       restart: ['.env.development'],
     }),
-    // AutoImport({
-    //   imports: ['vue', 'vue-router'],
-    //   // dirs:['./hooks',], // 可以設定特定資料夾自動導入
-    //   eslintrc: {
-    //     enabled: true,
-    //     filepath: './.eslintrc-auto-import.json',
-    //     globalsPropValue: true,
-    //   },
-    // }),
+    createSvgIconsPlugin({
+      // eslint-disable-next-line no-undef
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      symbolId: '[name]',
+    }),
     Components({
       dirs: ['src/components'], // 目標檔案夾
       extensions: ['vue', 'jsx'], // 文件類型
       // resolvers: [ElementPlusResolver()] // 解析器
-      // dts: 'src/components.d.js' // 如果生成的 components.d.Js 文件內容有報錯就加這行
+      // dts: 'src/components.d.js' // 如果生成的 components.d.js 文件內容有報錯就加這行
     }),
+    // // mock支持
+    // vitePluginFakeServer({
+    //   logger: false,
+    //   include: "mock",
+    //   infixName: false,
+    //   enableProd: true
+    // }),
     eslintPlugin({
       // 在啟動專案和打包時進行檢查
       // 預設配置是如果檢查有error類型的問題就啟動、打包失敗
