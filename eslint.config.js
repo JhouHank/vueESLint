@@ -12,7 +12,7 @@ export default [
     rules: {
       // 自定義規則
       // 'vue/no-unused-vars': 'error',
-      'no-unused-vars': ['error', { varsIgnorePattern: ['^cn$', '^_$'] }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^(cn|_)$' }],
       'vue/multi-word-component-names': 'off',
       'vue/require-default-prop': 'off',
       'prettier/prettier': 'error',
