@@ -9,8 +9,8 @@
   <div class="flex gap-4">
     <aside class="w-[250px] h-[calc(100vh-85px)] bg-red-200">
       <nav class="flex flex-col">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">Form</RouterLink>
+        <RouterLink to="/fetch">Fetch</RouterLink>
         <RouterLink to="/table">Table</RouterLink>
         <RouterLink to="/table2">Table2</RouterLink>
       </nav>
