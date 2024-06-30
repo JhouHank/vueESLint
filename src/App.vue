@@ -11,9 +11,11 @@
       <nav class="flex flex-col">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/table">Table</RouterLink>
+        <RouterLink to="/table2">Table2</RouterLink>
       </nav>
     </aside>
-    <div class="flex-1 h-[calc(100vh-85px)] overflow-auto bg-yellow-200">
+    <div class="flex-1 h-[calc(100vh-85px)] overflow-auto p-5 bg-gray-200">
       <RouterView />
     </div>
   </div>

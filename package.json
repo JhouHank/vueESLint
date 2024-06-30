@@ -11,6 +11,7 @@
     "format": "prettier --write --ignore-path src/"
   },
   "dependencies": {
+    "@tanstack/vue-table": "^8.19.1",
     "@vee-validate/zod": "^4.13.1",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",

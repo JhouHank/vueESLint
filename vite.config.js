@@ -1,11 +1,11 @@
-import {fileURLToPath, URL} from 'node:url';
-import {defineConfig} from 'vite';
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import {createSvgIconsPlugin} from 'vite-plugin-svg-icons';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import path from 'path';
 import eslintPlugin from 'vite-plugin-eslint';
 import ViteRestart from 'vite-plugin-restart';
-import {visualizer} from 'rollup-plugin-visualizer';
+import { visualizer } from 'rollup-plugin-visualizer';
 import Components from 'unplugin-vue-components/vite';
 import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 
@@ -15,7 +15,11 @@ export default defineConfig({
   //     '/api': {
   //       target: '',
   //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //       rewrite: (path) => {
+  //         const newPath = path.replace(/^\/api/, '');
+  //         console.log('Rewriting path from:', path, 'to:', newPath);
+  //         return newPath;
+  //       },
   //     },
   //   },
   // },
@@ -24,7 +28,7 @@ export default defineConfig({
     visualizer(),
     vueSetupExtend(),
     ViteRestart({
-      restart: ['.env.development'],
+      restart: ['vite.config.js', '.env.development'],
     }),
     createSvgIconsPlugin({
       // eslint-disable-next-line no-undef
