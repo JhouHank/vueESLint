@@ -8,6 +8,7 @@ import ViteRestart from 'vite-plugin-restart';
 import { visualizer } from 'rollup-plugin-visualizer';
 import Components from 'unplugin-vue-components/vite';
 import vueSetupExtend from 'vite-plugin-vue-setup-extend';
+import { vitePluginFakeServer } from 'vite-plugin-fake-server';
 
 export default defineConfig({
   // server: {
@@ -27,6 +28,7 @@ export default defineConfig({
     vue(),
     visualizer(),
     vueSetupExtend(),
+    vitePluginFakeServer(),
     ViteRestart({
       restart: ['vite.config.js', '.env.development'],
     }),
@@ -41,13 +43,6 @@ export default defineConfig({
       // resolvers: [ElementPlusResolver()] // 解析器
       // dts: 'src/components.d.js' // 如果生成的 components.d.js 文件內容有報錯就加這行
     }),
-    // // mock支持
-    // vitePluginFakeServer({
-    //   logger: false,
-    //   include: "mock",
-    //   infixName: false,
-    //   enableProd: true
-    // }),
     eslintPlugin({
       // 在啟動專案和打包時進行檢查
       // 預設配置是如果檢查有error類型的問題就啟動、打包失敗

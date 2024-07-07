@@ -3,8 +3,12 @@
     <Button variant="outline" @click="useFetch">
       <Icon name="logo2" class="icon" />
     </Button>
+    <Button variant="outline" @click="useFetchMock">
+      <Icon name="logo2" class="icon" />
+    </Button>
     <p>Title: {{ fetchData.title }}</p>
     <p>Body: {{ fetchData.body }}</p>
+    <p>MockData: {{ mockData }}</p>
   </div>
 </template>
 
@@ -15,7 +19,6 @@
   const fetchData = ref('');
 
   onMounted(() => {
-    console.log(123);
     console.log(' import.meta.env.MODE: ', import.meta.env.MODE);
     console.log(' import.meta.env.BASE_URL: ', import.meta.env.BASE_URL);
     console.log(' import.meta.env.PROD: ', import.meta.env.PROD);
@@ -40,6 +43,25 @@
       const data = await response.json();
       console.log('data:', data);
       fetchData.value = data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const mockData = ref('');
+
+  const useFetchMock = async () => {
+    try {
+      const response = await fetch('/mock/getUserInfo', {
+        method: 'GET',
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('data:', data);
+      mockData.value = data;
     } catch (error) {
       console.error('Error fetching data:', error);
     }
