@@ -1,3 +1,28 @@
+<template>
+  <form @submit="onSubmit">
+    <FormField v-slot="{ componentField }" name="username">
+      <FormItem>
+        <FormLabel>Username</FormLabel>
+        <FormControl>
+          <Input type="text" placeholder="shadcn" v-bind="componentField" />
+        </FormControl>
+        <FormDescription>This is your public display name.</FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+    <FormField v-slot="{ componentField }" name="phone">
+      <FormItem>
+        <FormLabel>Phone</FormLabel>
+        <FormControl>
+          <Input type="text" placeholder="shadcn" v-bind="componentField" />
+        </FormControl>
+        <FormDescription>This is your public display phone.</FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+    <Button type="submit">Submit</Button>
+  </form>
+</template>
 <script setup>
   import { useForm } from 'vee-validate';
   import { toTypedSchema } from '@vee-validate/zod';
@@ -37,29 +62,3 @@
     console.log('Form submitted!', values);
   });
 </script>
-
-<template>
-  <form @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="username">
-      <FormItem>
-        <FormLabel>Username</FormLabel>
-        <FormControl>
-          <Input type="text" placeholder="shadcn" v-bind="componentField" />
-        </FormControl>
-        <FormDescription>This is your public display name.</FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField v-slot="{ componentField }" name="phone">
-      <FormItem>
-        <FormLabel>Phone</FormLabel>
-        <FormControl>
-          <Input type="text" placeholder="shadcn" v-bind="componentField" />
-        </FormControl>
-        <FormDescription>This is your public display phone.</FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <Button type="submit">Submit</Button>
-  </form>
-</template>

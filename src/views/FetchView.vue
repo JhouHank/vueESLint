@@ -1,31 +1,21 @@
 <template>
-  <div class="about">
+  <div class="flex gap-5">
     <Button variant="outline" @click="useFetch">
       <Icon name="logo2" class="icon" />
     </Button>
-    <Button variant="outline" @click="useFetchMock">
-      <Icon name="logo2" class="icon" />
-    </Button>
+    <Button variant="outline" @click="useFetchMock">Fetch mock Data</Button>
+  </div>
+  <div class="flex flex-col gap-5 mt-10">
     <p>Title: {{ fetchData.title }}</p>
     <p>Body: {{ fetchData.body }}</p>
     <p>MockData: {{ mockData }}</p>
   </div>
 </template>
-
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref } from 'vue';
   import { Button } from '@/components/ui/button';
 
   const fetchData = ref('');
-
-  onMounted(() => {
-    console.log(' import.meta.env.MODE: ', import.meta.env.MODE);
-    console.log(' import.meta.env.BASE_URL: ', import.meta.env.BASE_URL);
-    console.log(' import.meta.env.PROD: ', import.meta.env.PROD);
-    console.log(' import.meta.env.DEV: ', import.meta.env.DEV);
-    console.log(' import.meta.env.SSR: ', import.meta.env.SSR);
-  });
-
   const useFetch = async () => {
     try {
       const response = await fetch(
@@ -49,7 +39,6 @@
   };
 
   const mockData = ref('');
-
   const useFetchMock = async () => {
     try {
       const response = await fetch('/mock/getUserInfo', {

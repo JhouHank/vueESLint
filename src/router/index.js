@@ -24,6 +24,21 @@ const router = createRouter({
       name: 'table2',
       component: () => import('../views/Table2View.vue'),
     },
+    {
+      path: '/skeleton',
+      name: 'skeleton',
+      component: () => import('../views/SkeletonView.vue'),
+    },
+    {
+      path: '/colorMode',
+      name: 'colorMode',
+      component: () => import('../views/ColorModeView.vue'),
+    },
+    {
+      path: '/dialog',
+      name: 'dialog',
+      component: () => import('../views/DialogView.vue'),
+    },
   ],
 });
 

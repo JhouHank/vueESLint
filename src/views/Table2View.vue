@@ -1,3 +1,8 @@
+<template>
+  <div class="container mx-auto px-8 py-8">
+    <TableTanstack :data="people" :columns="columnsPeople" />
+  </div>
+</template>
 <script setup>
   import { h } from 'vue';
   import TableTanstack from '@/components/TableTanstack.vue';
@@ -73,9 +78,3 @@
     console.log(`Edit item with id: ${id}`);
   };
 </script>
-
-<template>
-  <div class="container mx-auto px-8 py-8">
-    <TableTanstack :data="people" :columns="columnsPeople" />
-  </div>
-</template>
