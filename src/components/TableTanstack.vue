@@ -50,7 +50,7 @@
                   </TableCell>
                 </TableRow>
                 <TableRow v-if="row.getIsExpanded()">
-                  <TableCell :colspan="row.getAllCells().length">
+                  <TableCell :colspan="cellLength(row)">
                     <pre :style="{ fontSize: '10px' }">
                       <code>{{ JSON.stringify(row.original, null, 2) }}</code>
                     </pre>
@@ -101,79 +101,83 @@
   </div>
 </template>
 <script setup>
-  import { ref } from 'vue';
-  import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-  } from '@/components/ui/table';
-  import {
-    Pagination,
-    PaginationEllipsis,
-    PaginationFirst,
-    PaginationLast,
-    PaginationList,
-    PaginationListItem,
-    PaginationNext,
-    PaginationPrev,
-  } from '@/components/ui/pagination';
-  import {
-    useVueTable,
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    getFilteredRowModel,
-    getExpandedRowModel,
-  } from '@tanstack/vue-table';
+import { ref } from 'vue';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Pagination,
+  PaginationEllipsis,
+  PaginationFirst,
+  PaginationLast,
+  PaginationList,
+  PaginationListItem,
+  PaginationNext,
+  PaginationPrev,
+} from '@/components/ui/pagination';
+import {
+  useVueTable,
+  FlexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  getExpandedRowModel,
+} from '@tanstack/vue-table';
 
-  const props = defineProps({
-    data: Array,
-    columns: Array,
-  });
+const props = defineProps({
+  data: Array,
+  columns: Array,
+});
 
-  const data = ref(props.data);
+const data = ref(props.data);
 
-  const sorting = ref([]);
-  const filter = ref('');
-  const expanded = ref({});
+const sorting = ref([]);
+const filter = ref('');
+const expanded = ref({});
 
-  const table = useVueTable({
-    data: data.value,
-    columns: props.columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getRowCanExpand: () => true,
-    getExpandedRowModel: getExpandedRowModel(),
-    state: {
-      get sorting() {
-        return sorting.value;
-      },
-      get globalFilter() {
-        return filter.value;
-      },
-      get expanded() {
-        return expanded.value;
-      },
+const cellLength = (row) => {
+  return row.getAllCells().length;
+};
+
+const table = useVueTable({
+  data: data.value,
+  columns: props.columns,
+  getCoreRowModel: getCoreRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
+  getFilteredRowModel: getFilteredRowModel(),
+  getRowCanExpand: () => true,
+  getExpandedRowModel: getExpandedRowModel(),
+  state: {
+    get sorting() {
+      return sorting.value;
     },
-    onSortingChange: (updaterOrValue) => {
-      sorting.value =
-        typeof updaterOrValue === 'function'
-          ? updaterOrValue(sorting.value)
-          : updaterOrValue;
+    get globalFilter() {
+      return filter.value;
     },
-    onExpandedChange: (updaterOrValue) => {
-      expanded.value =
-        typeof updaterOrValue === 'function'
-          ? updaterOrValue(expanded.value)
-          : updaterOrValue;
+    get expanded() {
+      return expanded.value;
+    },
+  },
+  onSortingChange: (updaterOrValue) => {
+    sorting.value =
+      typeof updaterOrValue === 'function'
+        ? updaterOrValue(sorting.value)
+        : updaterOrValue;
+  },
+  onExpandedChange: (updaterOrValue) => {
+    expanded.value =
+      typeof updaterOrValue === 'function'
+        ? updaterOrValue(expanded.value)
+        : updaterOrValue;
 
-      console.log('expanded:', expanded.value);
-    },
-  });
+    console.log('expanded:', expanded.value);
+  },
+});
 </script>

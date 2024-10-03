@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../views/Table2View.vue'),
     },
     {
+      path: '/table3',
+      name: 'table3',
+      component: () => import('../views/Table3View.vue'),
+    },
+    {
       path: '/skeleton',
       name: 'skeleton',
       component: () => import('../views/SkeletonView.vue'),
@@ -38,6 +43,16 @@ const router = createRouter({
       path: '/dialog',
       name: 'dialog',
       component: () => import('../views/DialogView.vue'),
+    },
+    {
+      path: '/tanstackQuery',
+      name: 'tanstackQuery',
+      component: () => import('../views/TanstackQueryView.vue'),
+    },
+    {
+      path: '/vueuse',
+      name: 'vueuse',
+      component: () => import('../views/VueuseView.vue'),
     },
   ],
 });

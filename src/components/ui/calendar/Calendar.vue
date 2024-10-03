@@ -1,57 +1,57 @@
 <script setup>
-  import { computed } from 'vue';
-  import { CalendarRoot, useForwardPropsEmits } from 'radix-vue';
-  import {
-    CalendarCell,
-    CalendarCellTrigger,
-    CalendarGrid,
-    CalendarGridBody,
-    CalendarGridHead,
-    CalendarGridRow,
-    CalendarHeadCell,
-    CalendarHeader,
-    CalendarHeading,
-    CalendarNextButton,
-    CalendarPrevButton,
-  } from '.';
-  import { cn } from '@/lib/utils';
+import { computed } from 'vue';
+import { CalendarRoot, useForwardPropsEmits } from 'radix-vue';
+import {
+  CalendarCell,
+  CalendarCellTrigger,
+  CalendarGrid,
+  CalendarGridBody,
+  CalendarGridHead,
+  CalendarGridRow,
+  CalendarHeadCell,
+  CalendarHeader,
+  CalendarHeading,
+  CalendarNextButton,
+  CalendarPrevButton,
+} from '.';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    modelValue: { type: null, required: false },
-    multiple: { type: Boolean, required: false },
-    defaultValue: { type: null, required: false },
-    defaultPlaceholder: { type: null, required: false },
-    placeholder: { type: null, required: false },
-    pagedNavigation: { type: Boolean, required: false },
-    preventDeselect: { type: Boolean, required: false },
-    weekStartsOn: { type: Number, required: false },
-    weekdayFormat: { type: String, required: false },
-    calendarLabel: { type: String, required: false },
-    fixedWeeks: { type: Boolean, required: false },
-    maxValue: { type: null, required: false },
-    minValue: { type: null, required: false },
-    locale: { type: String, required: false },
-    numberOfMonths: { type: Number, required: false },
-    disabled: { type: Boolean, required: false },
-    readonly: { type: Boolean, required: false },
-    initialFocus: { type: Boolean, required: false },
-    isDateDisabled: { type: Function, required: false },
-    isDateUnavailable: { type: Function, required: false },
-    dir: { type: String, required: false },
-    asChild: { type: Boolean, required: false },
-    as: { type: null, required: false },
-    class: { type: null, required: false },
-  });
+const props = defineProps({
+  modelValue: { type: null, required: false },
+  multiple: { type: Boolean, required: false },
+  defaultValue: { type: null, required: false },
+  defaultPlaceholder: { type: null, required: false },
+  placeholder: { type: null, required: false },
+  pagedNavigation: { type: Boolean, required: false },
+  preventDeselect: { type: Boolean, required: false },
+  weekStartsOn: { type: Number, required: false },
+  weekdayFormat: { type: String, required: false },
+  calendarLabel: { type: String, required: false },
+  fixedWeeks: { type: Boolean, required: false },
+  maxValue: { type: null, required: false },
+  minValue: { type: null, required: false },
+  locale: { type: String, required: false },
+  numberOfMonths: { type: Number, required: false },
+  disabled: { type: Boolean, required: false },
+  readonly: { type: Boolean, required: false },
+  initialFocus: { type: Boolean, required: false },
+  isDateDisabled: { type: Function, required: false },
+  isDateUnavailable: { type: Function, required: false },
+  dir: { type: String, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
+});
 
-  const emits = defineEmits(['update:modelValue', 'update:placeholder']);
+const emits = defineEmits(['update:modelValue', 'update:placeholder']);
 
-  const delegatedProps = computed(() => {
-    const { class: _, ...delegated } = props;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
 
-    return delegated;
-  });
+  return delegated;
+});
 
-  const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>

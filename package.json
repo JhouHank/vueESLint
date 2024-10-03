@@ -8,12 +8,14 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.ts,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write --ignore-path src/"
+    "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tanstack/vue-query": "^5.51.9",
     "@tanstack/vue-table": "^8.19.2",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^10.11.0",
+    "@vueuse/router": "^10.11.0",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

@@ -1,51 +1,51 @@
 <script setup>
-  import { computed } from 'vue';
-  import {
-    SelectContent,
-    SelectPortal,
-    SelectViewport,
-    useForwardPropsEmits,
-  } from 'radix-vue';
-  import { SelectScrollDownButton, SelectScrollUpButton } from '.';
-  import { cn } from '@/lib/utils';
+import { computed } from 'vue';
+import {
+  SelectContent,
+  SelectPortal,
+  SelectViewport,
+  useForwardPropsEmits,
+} from 'radix-vue';
+import { SelectScrollDownButton, SelectScrollUpButton } from '.';
+import { cn } from '@/lib/utils';
 
-  defineOptions({
-    inheritAttrs: false,
-  });
+defineOptions({
+  inheritAttrs: false,
+});
 
-  const props = defineProps({
-    forceMount: { type: Boolean, required: false },
-    position: { type: String, required: false, default: 'popper' },
-    bodyLock: { type: Boolean, required: false },
-    side: { type: null, required: false },
-    sideOffset: { type: Number, required: false },
-    align: { type: null, required: false },
-    alignOffset: { type: Number, required: false },
-    avoidCollisions: { type: Boolean, required: false },
-    collisionBoundary: { type: null, required: false },
-    collisionPadding: { type: [Number, Object], required: false },
-    arrowPadding: { type: Number, required: false },
-    sticky: { type: String, required: false },
-    hideWhenDetached: { type: Boolean, required: false },
-    updatePositionStrategy: { type: String, required: false },
-    prioritizePosition: { type: Boolean, required: false },
-    asChild: { type: Boolean, required: false },
-    as: { type: null, required: false },
-    class: { type: null, required: false },
-  });
-  const emits = defineEmits([
-    'closeAutoFocus',
-    'escapeKeyDown',
-    'pointerDownOutside',
-  ]);
+const props = defineProps({
+  forceMount: { type: Boolean, required: false },
+  position: { type: String, required: false, default: 'popper' },
+  bodyLock: { type: Boolean, required: false },
+  side: { type: null, required: false },
+  sideOffset: { type: Number, required: false },
+  align: { type: null, required: false },
+  alignOffset: { type: Number, required: false },
+  avoidCollisions: { type: Boolean, required: false },
+  collisionBoundary: { type: null, required: false },
+  collisionPadding: { type: [Number, Object], required: false },
+  arrowPadding: { type: Number, required: false },
+  sticky: { type: String, required: false },
+  hideWhenDetached: { type: Boolean, required: false },
+  updatePositionStrategy: { type: String, required: false },
+  prioritizePosition: { type: Boolean, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
+});
+const emits = defineEmits([
+  'closeAutoFocus',
+  'escapeKeyDown',
+  'pointerDownOutside',
+]);
 
-  const delegatedProps = computed(() => {
-    const { class: _, ...delegated } = props;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
 
-    return delegated;
-  });
+  return delegated;
+});
 
-  const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>

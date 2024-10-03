@@ -1,31 +1,31 @@
 <script setup>
-  import AutoFormLabel from './AutoFormLabel.vue';
-  import { beautifyObjectName } from './utils';
-  import {
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormMessage,
-  } from '@/components/ui/form';
-  import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from '@/components/ui/select';
-  import { Label } from '@/components/ui/label';
-  import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import AutoFormLabel from './AutoFormLabel.vue';
+import { beautifyObjectName } from './utils';
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '@/components/ui/form';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-  defineProps({
-    fieldName: { type: String, required: true },
-    label: { type: String, required: false },
-    required: { type: Boolean, required: false },
-    config: { type: Object, required: false },
-    disabled: { type: Boolean, required: false },
-    options: { type: Array, required: false },
-  });
+defineProps({
+  fieldName: { type: String, required: true },
+  label: { type: String, required: false },
+  required: { type: Boolean, required: false },
+  config: { type: Object, required: false },
+  disabled: { type: Boolean, required: false },
+  options: { type: Array, required: false },
+});
 </script>
 
 <template>

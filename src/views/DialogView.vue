@@ -23,17 +23,17 @@
   </div>
 </template>
 <script setup>
-  import { Button } from '@/components/ui/button';
-  import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-  } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
-  import { useToggle } from '@vueuse/core';
-  const [isDialogOpen, toggleDialog] = useToggle();
+import { useToggle } from '@vueuse/core';
+const [isDialogOpen, toggleDialog] = useToggle();
 </script>
 <style scoped></style>

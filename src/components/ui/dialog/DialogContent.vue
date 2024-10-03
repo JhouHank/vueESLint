@@ -1,39 +1,39 @@
 <script setup>
-  import { computed } from 'vue';
-  import {
-    DialogClose,
-    DialogContent,
-    DialogOverlay,
-    DialogPortal,
-    useForwardPropsEmits,
-  } from 'radix-vue';
-  import { X } from 'lucide-vue-next';
-  import { cn } from '@/lib/utils';
+import { computed } from 'vue';
+import {
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  useForwardPropsEmits,
+} from 'radix-vue';
+import { X } from 'lucide-vue-next';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    forceMount: { type: Boolean, required: false },
-    trapFocus: { type: Boolean, required: false },
-    disableOutsidePointerEvents: { type: Boolean, required: false },
-    asChild: { type: Boolean, required: false },
-    as: { type: null, required: false },
-    class: { type: null, required: false },
-  });
-  const emits = defineEmits([
-    'escapeKeyDown',
-    'pointerDownOutside',
-    'focusOutside',
-    'interactOutside',
-    'openAutoFocus',
-    'closeAutoFocus',
-  ]);
+const props = defineProps({
+  forceMount: { type: Boolean, required: false },
+  trapFocus: { type: Boolean, required: false },
+  disableOutsidePointerEvents: { type: Boolean, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
+});
+const emits = defineEmits([
+  'escapeKeyDown',
+  'pointerDownOutside',
+  'focusOutside',
+  'interactOutside',
+  'openAutoFocus',
+  'closeAutoFocus',
+]);
 
-  const delegatedProps = computed(() => {
-    const { class: _, ...delegated } = props;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
 
-    return delegated;
-  });
+  return delegated;
+});
 
-  const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>

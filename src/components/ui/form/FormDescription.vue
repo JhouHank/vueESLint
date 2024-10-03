@@ -1,12 +1,12 @@
 <script setup>
-  import { useFormField } from './useFormField';
-  import { cn } from '@/lib/utils';
+import { useFormField } from './useFormField';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    class: { type: null, required: false },
-  });
+const props = defineProps({
+  class: { type: null, required: false },
+});
 
-  const { formDescriptionId } = useFormField();
+const { formDescriptionId } = useFormField();
 </script>
 
 <template>

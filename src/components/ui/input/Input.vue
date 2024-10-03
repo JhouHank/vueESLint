@@ -1,22 +1,22 @@
 <script setup>
-  import { useFormField } from '@/components/ui/form/useFormField';
-  import { useVModel } from '@vueuse/core';
-  import { cn } from '@/lib/utils';
+// import { useFormField } from '@/components/ui/form/useFormField';
+import { useVModel } from '@vueuse/core';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    defaultValue: { type: [String, Number], required: false },
-    modelValue: { type: [String, Number], required: false },
-    class: { type: null, required: false },
-  });
+const props = defineProps({
+  defaultValue: { type: [String, Number], required: false },
+  modelValue: { type: [String, Number], required: false },
+  class: { type: null, required: false },
+});
 
-  const emits = defineEmits(['update:modelValue']);
+const emits = defineEmits(['update:modelValue']);
 
-  const modelValue = useVModel(props, 'modelValue', emits, {
-    passive: true,
-    defaultValue: props.defaultValue,
-  });
+const modelValue = useVModel(props, 'modelValue', emits, {
+  passive: true,
+  defaultValue: props.defaultValue,
+});
 
-  const { error } = useFormField();
+// const { error } = useFormField();
 </script>
 
 <template>
@@ -31,8 +31,8 @@
         focus-visible:outline-none focus-visible:ring-2 
         focus-visible:ring-ring focus-visible:ring-offset-2 
         disabled:cursor-not-allowed disabled:opacity-50`,
-        error && 'focus-visible:ring-red-500',
-        error && 'border-red-500',
+        // error && 'focus-visible:ring-red-500',
+        // error && 'border-red-500',
         props.class,
       )
     "

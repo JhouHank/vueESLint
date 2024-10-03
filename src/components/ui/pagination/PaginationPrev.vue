@@ -1,21 +1,21 @@
 <script setup>
-  import { computed } from 'vue';
-  import { PaginationPrev } from 'radix-vue';
-  import { ChevronLeft } from 'lucide-vue-next';
-  import { Button } from '@/components/ui/button';
-  import { cn } from '@/lib/utils';
+import { computed } from 'vue';
+import { PaginationPrev } from 'radix-vue';
+import { ChevronLeft } from 'lucide-vue-next';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    asChild: { type: Boolean, required: false, default: true },
-    as: { type: null, required: false },
-    class: { type: null, required: false },
-  });
+const props = defineProps({
+  asChild: { type: Boolean, required: false, default: true },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
+});
 
-  const delegatedProps = computed(() => {
-    const { class: _, ...delegated } = props;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
 
-    return delegated;
-  });
+  return delegated;
+});
 </script>
 
 <template>

@@ -1,34 +1,34 @@
 <script setup>
-  import { computed } from 'vue';
-  import {
-    CheckboxIndicator,
-    CheckboxRoot,
-    useForwardPropsEmits,
-  } from 'radix-vue';
-  import { Check } from 'lucide-vue-next';
-  import { cn } from '@/lib/utils';
+import { computed } from 'vue';
+import {
+  CheckboxIndicator,
+  CheckboxRoot,
+  useForwardPropsEmits,
+} from 'radix-vue';
+import { Check } from 'lucide-vue-next';
+import { cn } from '@/lib/utils';
 
-  const props = defineProps({
-    defaultChecked: { type: Boolean, required: false },
-    checked: { type: [Boolean, String], required: false },
-    disabled: { type: Boolean, required: false },
-    required: { type: Boolean, required: false },
-    name: { type: String, required: false },
-    value: { type: String, required: false },
-    id: { type: String, required: false },
-    asChild: { type: Boolean, required: false },
-    as: { type: null, required: false },
-    class: { type: null, required: false },
-  });
-  const emits = defineEmits(['update:checked']);
+const props = defineProps({
+  defaultChecked: { type: Boolean, required: false },
+  checked: { type: [Boolean, String], required: false },
+  disabled: { type: Boolean, required: false },
+  required: { type: Boolean, required: false },
+  name: { type: String, required: false },
+  value: { type: String, required: false },
+  id: { type: String, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
+});
+const emits = defineEmits(['update:checked']);
 
-  const delegatedProps = computed(() => {
-    const { class: _, ...delegated } = props;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
 
-    return delegated;
-  });
+  return delegated;
+});
 
-  const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>

@@ -1,41 +1,41 @@
 <script setup>
-  import { ref } from 'vue';
-  import { TrashIcon } from 'lucide-vue-next';
-  import AutoFormLabel from './AutoFormLabel.vue';
-  import { beautifyObjectName } from './utils';
-  import {
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormMessage,
-  } from '@/components/ui/form';
-  import { Input } from '@/components/ui/input';
-  import { Button } from '@/components/ui/button';
+import { ref } from 'vue';
+import { TrashIcon } from 'lucide-vue-next';
+import AutoFormLabel from './AutoFormLabel.vue';
+import { beautifyObjectName } from './utils';
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
-  defineProps({
-    fieldName: { type: String, required: true },
-    label: { type: String, required: false },
-    required: { type: Boolean, required: false },
-    config: { type: Object, required: false },
-    disabled: { type: Boolean, required: false },
+defineProps({
+  fieldName: { type: String, required: true },
+  label: { type: String, required: false },
+  required: { type: Boolean, required: false },
+  config: { type: Object, required: false },
+  disabled: { type: Boolean, required: false },
+});
+
+const inputFile = ref();
+async function parseFileAsString(file) {
+  return new Promise((resolve, reject) => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = (err) => {
+        reject(err);
+      };
+      reader.readAsDataURL(file);
+    }
   });
-
-  const inputFile = ref();
-  async function parseFileAsString(file) {
-    return new Promise((resolve, reject) => {
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          resolve(reader.result);
-        };
-        reader.onerror = (err) => {
-          reject(err);
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-  }
+}
 </script>
 
 <template>

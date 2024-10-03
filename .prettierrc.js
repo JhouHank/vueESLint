@@ -12,7 +12,7 @@ export default {
   // 物件是否要在同一行
   bracketSameLine: false,
   // Vue 檔案的 Script 與 Style 是否縮排
-  vueIndentScriptAndStyle: true,
+  vueIndentScriptAndStyle: false,
   // 指定HTML文件的全局空格敏感度 css\strict\ignore
   htmlWhitespaceSensitivity: 'ignore',
 };

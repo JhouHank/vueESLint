@@ -21,32 +21,32 @@
   </Card>
 </template>
 <script setup>
-  import { ref } from 'vue';
-  import { Button } from '@/components/ui/button';
-  import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from '@/components/ui/card';
+import { ref } from 'vue';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
-  const mockData = ref('');
-  const useFetchMock = async () => {
-    try {
-      const response = await fetch('/mock/getUserInfo', {
-        method: 'GET',
-      });
+const mockData = ref('');
+const useFetchMock = async () => {
+  try {
+    const response = await fetch('/mock/getUserInfo', {
+      method: 'GET',
+    });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      console.log('data:', data);
-      mockData.value = data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  };
+    const data = await response.json();
+    console.log('data:', data);
+    mockData.value = data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 </script>
