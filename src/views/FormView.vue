@@ -20,6 +20,16 @@
         <FormMessage />
       </FormItem>
     </FormField>
+    <FormField v-slot="{ componentField }" name="number">
+      <FormItem>
+        <FormLabel>Number</FormLabel>
+        <FormControl>
+          <Input type="number" placeholder="shadcn" v-bind="componentField" />
+        </FormControl>
+        <FormDescription>This is your number display phone.</FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
     <Button type="submit">Submit</Button>
   </form>
 </template>
@@ -51,6 +61,10 @@
       phone: z
         .string()
         .regex(phoneRegex, { message: '電話號碼必須是09開頭的10位數字' }),
+      number: z
+        .number({ invalid_type_error: '必須是數字' })
+        .min(10, { message: '數字必須大於或等於 10' })
+        .max(100, { message: '數字必須小於或等於 100' }),
     }),
   );
 

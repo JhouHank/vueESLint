@@ -39,6 +39,16 @@ const router = createRouter({
       name: 'dialog',
       component: () => import('../views/DialogView.vue'),
     },
+    {
+      path: '/testPinia',
+      name: 'testPinia',
+      component: () => import('../views/testPiniaView.vue'),
+    },
+    {
+      path: '/testTransition',
+      name: 'testTransition',
+      component: () => import('../views/TestTransition.vue'),
+    },
   ],
 });
 

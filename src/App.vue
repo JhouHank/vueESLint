@@ -12,6 +12,8 @@
         <RouterLink to="/skeleton">Skeleton</RouterLink>
         <RouterLink to="/dialog">Dialog</RouterLink>
         <RouterLink to="/colorMode">ColorMode</RouterLink>
+        <RouterLink to="/testPinia">testPinia</RouterLink>
+        <RouterLink to="/testTransition">testTransition</RouterLink>
       </nav>
     </aside>
     <div class="flex-1 h-[calc(100vh-85px)] overflow-auto p-5 bg-gray-200">
