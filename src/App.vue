@@ -13,6 +13,8 @@
         <RouterLink to="/skeleton">Skeleton</RouterLink>
         <RouterLink to="/dialog">Dialog</RouterLink>
         <RouterLink to="/colorMode">ColorMode</RouterLink>
+        <RouterLink to="/testPinia">testPinia</RouterLink>
+        <RouterLink to="/testTransition">testTransition</RouterLink>
         <RouterLink to="/tanstackQuery">tanstackQuery</RouterLink>
         <RouterLink to="/vueuse">vueuse</RouterLink>
       </nav>
@@ -23,14 +25,14 @@
   </div>
 </template>
 <script setup>
-import { onMounted } from 'vue';
+  import { onMounted } from 'vue';
 
-onMounted(() => {
-  console.log('import.meta.env.MODE:', import.meta.env.MODE);
-  console.log('import.meta.env.BASE_URL:', import.meta.env.BASE_URL);
-  console.log('import.meta.env.PROD:', import.meta.env.PROD);
-  console.log('import.meta.env.DEV:', import.meta.env.DEV);
-  console.log('import.meta.env.SSR:', import.meta.env.SSR);
-});
+  onMounted(() => {
+    console.log('import.meta.env.MODE:', import.meta.env.MODE);
+    console.log('import.meta.env.BASE_URL:', import.meta.env.BASE_URL);
+    console.log('import.meta.env.PROD:', import.meta.env.PROD);
+    console.log('import.meta.env.DEV:', import.meta.env.DEV);
+    console.log('import.meta.env.SSR:', import.meta.env.SSR);
+  });
 </script>
 <style scoped></style>

@@ -45,6 +45,16 @@ const router = createRouter({
       component: () => import('../views/DialogView.vue'),
     },
     {
+      path: '/testPinia',
+      name: 'testPinia',
+      component: () => import('../views/testPiniaView.vue'),
+    },
+    {
+      path: '/testTransition',
+      name: 'testTransition',
+      component: () => import('../views/TestTransition.vue'),
+    },
+    {
       path: '/tanstackQuery',
       name: 'tanstackQuery',
       component: () => import('../views/TanstackQueryView.vue'),
