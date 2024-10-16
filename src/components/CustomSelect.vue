@@ -7,8 +7,8 @@
       <li
         v-for="option in options"
         :key="option.value"
-        @click="selectOption(option.value)"
         :class="{ selected: option.value === modelValue }"
+        @click="selectOption(option.value)"
       >
         {{ option.label }}
       </li>
@@ -37,6 +37,7 @@ const props = defineProps({
   },
 });
 
+// eslint-disable-next-line vue/require-prop-types
 const modelValue = defineModel();
 const emit = defineEmits(['change']);
 

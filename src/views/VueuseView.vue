@@ -3,7 +3,7 @@
   <custom-select
     v-model="selectedValue"
     :options="selectOptions"
-    :visibleOptions="5"
+    :visible-options="5"
     @change="handleChange"
   />
 </template>

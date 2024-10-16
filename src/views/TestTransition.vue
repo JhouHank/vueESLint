@@ -23,40 +23,40 @@
 </template>
 
 <script setup>
-  import { Button } from '@/components/ui/button';
-  import { Label } from '@/components/ui/label';
-  import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-  import { ref } from 'vue';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { ref } from 'vue';
 
-  const mode = ref('in-out');
-  const isShow = ref(false);
+const mode = ref('in-out');
+const isShow = ref(false);
 </script>
 
 <style scoped>
-  .block {
-    display: block;
-    width: 150px;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-    background-color: #0f0;
-  }
-  .block-2 {
-    background-color: #00f;
-  }
+.block {
+  display: block;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-color: #0f0;
+}
+.block-2 {
+  background-color: #00f;
+}
 
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.75s;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.75s;
+}
 
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
-  .fade-enter-to,
-  .fade-leave-from {
-    opacity: 1;
-  }
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
 </style>

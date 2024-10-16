@@ -19,6 +19,10 @@
     </CardContent>
     <CardFooter class="flex justify-between px-6 pb-6"></CardFooter>
   </Card>
+  <Button disabled class="mt-5">
+    <Loader2 class="w-4 h-4 mr-2 animate-spin" />
+    Please wait
+  </Button>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -31,6 +35,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Loader2 } from 'lucide-vue-next';
 
 const mockData = ref('');
 const useFetchMock = async () => {

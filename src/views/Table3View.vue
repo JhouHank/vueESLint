@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-template-shadow -->
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="mt-8 flow-root">
