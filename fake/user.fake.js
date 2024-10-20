@@ -43,20 +43,53 @@ export default defineFakeRoute([
     response: ({ query }) => {
       const page = parseInt(query.page, 10) || 1;
       const perPage = parseInt(query.per_page, 10) || 10;
+      const sort = query.sort ? JSON.parse(query.sort) : [];
+      const filter = query.filter || '';
+
+      // 篩選功能
+      let filteredData = data.filter(
+        (user) => user.username.includes(filter) || user.email.includes(filter),
+      );
+
+      // 排序功能
+      if (sort.length) {
+        filteredData.sort((a, b) => {
+          for (let i = 0; i < sort.length; i++) {
+            const { id, desc } = sort[i];
+            const dir = desc ? -1 : 1;
+            if (a[id] < b[id]) return -dir;
+            if (a[id] > b[id]) return dir;
+          }
+          return 0;
+        });
+      }
+
       const start = (page - 1) * perPage;
       const end = page * perPage;
-      const paginatedData = data.slice(start, end);
+      const paginatedData = filteredData.slice(start, end);
 
       return {
         status: 'success',
         code: 200,
         data: {
-          total: data.length,
+          total: filteredData.length,
           page,
           per_page: perPage,
-          total_pages: Math.ceil(data.length / perPage),
+          total_pages: Math.ceil(filteredData.length / perPage),
           users: paginatedData,
         },
+      };
+    },
+  },
+  {
+    url: '/mock/errorAPI',
+    timeout: 1000,
+    method: 'GET',
+    response: () => {
+      return {
+        status: 'error',
+        code: 500,
+        message: 'Internal Server Error',
       };
     },
   },
