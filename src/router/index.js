@@ -64,6 +64,11 @@ const router = createRouter({
       name: 'vueuse',
       component: () => import('../views/VueuseView.vue'),
     },
+    {
+      path: '/infiniteScroll',
+      name: 'infiniteScroll',
+      component: () => import('../views/TestInfiniteScrollView.vue'),
+    },
   ],
 });
 

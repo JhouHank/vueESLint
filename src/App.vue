@@ -17,6 +17,7 @@
         <RouterLink to="/testTransition">testTransition</RouterLink>
         <RouterLink to="/tanstackQuery">tanstackQuery</RouterLink>
         <RouterLink to="/vueuse">vueuse</RouterLink>
+        <RouterLink to="/infiniteScroll">infiniteScroll</RouterLink>
       </nav>
     </aside>
     <div class="flex-1 h-[calc(100vh-85px)] overflow-auto p-5 bg-gray-200">
