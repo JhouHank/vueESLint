@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-container" ref="containerRef">
+  <div ref="containerRef" class="scroll-container">
     <div
       v-for="(list, index) in renderedUlLists"
       :key="index"
@@ -35,7 +35,7 @@ const generateRandomImageUrl = () =>
 
 const ulLists = reactive([
   {
-    items: Array.from({ length: 5 }, (_, i) => ({
+    items: Array.from({ length: 15 }, (_, i) => ({
       id: i,
       imageUrl: generateRandomImageUrl(i),
       loading: true,

@@ -17,14 +17,7 @@
 </template>
 
 <script setup>
-import {
-  ref,
-  computed,
-  defineProps,
-  defineEmits,
-  defineModel,
-  onMounted,
-} from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 const props = defineProps({
   options: {

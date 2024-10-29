@@ -24,9 +24,11 @@
       <RouterView />
     </div>
   </div>
+  <Toaster />
 </template>
 <script setup>
 import { onMounted } from 'vue';
+import Toaster from '@/components/ui/toast/Toaster.vue';
 
 onMounted(() => {
   console.log('import.meta.env.MODE:', import.meta.env.MODE);

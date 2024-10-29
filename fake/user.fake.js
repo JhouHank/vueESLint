@@ -93,4 +93,16 @@ export default defineFakeRoute([
       };
     },
   },
+  {
+    url: '/mock/echo',
+    timeout: 1000, // 延遲1秒
+    method: 'POST',
+    response: ({ body }) => {
+      return {
+        status: 'success',
+        code: 200,
+        data: body, // 直接回傳請求中的 body
+      };
+    },
+  },
 ]);
