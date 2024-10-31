@@ -23,7 +23,7 @@ export default defineFakeRoute([
         status: 'success',
         code: 200,
         data: Mock.mock({
-          'users|10-20': [
+          'users|1-2': [
             {
               id: '@guid',
               username: '@first',
@@ -88,8 +88,8 @@ export default defineFakeRoute([
     response: () => {
       return {
         status: 'error',
-        code: 500,
-        message: 'Internal Server Error',
+        code: 404,
+        message: 'Not found',
       };
     },
   },
